@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap 101 Template</title>
+<title>LAB - Lounge and Brainstorming</title>
 <!-- Bootsrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
@@ -55,64 +55,14 @@
         <div class="span12">
             <div id="ca-container" class="ca-container">
                 <div class="ca-nav"><span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span></div>
-                <div class="ca-wrapper">
-                    <div class="ca-item ca-item-1">
-                        <div class="ca-item-main">
-                            <img src="quotes/quote1.jpg">
-                        </div>
-                        <div class="ca-content-wrapper">
-                            <div class="ca-content">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ca-item ca-item-2">
-                        <div class="ca-item-main">
-                            <img src="quotes/quote2.jpg">
-                        </div>
-                        <div class="ca-content-wrapper">
-                            <div class="ca-content">
-                                <h6>Would you eat your dog?</h6>
-                                <a href="#" class="ca-close">close</a>
-                                <div class="ca-content-text">
-                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
-                                    <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
-                                    <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                                </div>
-                                <ul>
-                                    <li><a href="#">Read more</a></li>
-                                    <li><a href="#">Share this</a></li>
-                                    <li><a href="#">Become a member</a></li>
-                                    <li><a href="#">Donate</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ca-item ca-item-3">
-                        <div class="ca-item-main">
-                            <img src="quotes/quote3.jpg">
-                        </div>
-                        <div class="ca-content-wrapper">
-                            <div class="ca-content">
-                                <h6>You can change the world</h6>
-                                <a href="#" class="ca-close">close</a>
-                                <div class="ca-content-text">
-                                    <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
-                                    <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream;</p>
-                                    <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-                                </div>
-                                <ul>
-                                    <li><a href="#">Read more</a></li>
-                                    <li><a href="#">Share this</a></li>
-                                    <li><a href="#">Become a member</a></li>
-                                    <li><a href="#">Donate</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="ca-wrapper" id="carousel-wrapper">
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="content">
+
     </div>
 
     <div class="row footer pull-left" style="margin-bottom:15px;margin-left:15px;">
@@ -120,14 +70,25 @@
     </div>
   </div>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/bootstrap.min.js"></script>     
+<script src="js/bootstrap.min.js"></script>   
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>  
 <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
 <script type="text/javascript">
-    $('#ca-container').contentcarousel();
+    $(document).ready(function(){
+        var url = "http://labtpe.com/pic_list.php";
+        $.getJSON(url, function(json){
+            json.pictures.pop();
+            $.each(json.pictures, function(i, picture){
+                $('#carousel-wrapper').append(
+                    '<div class="ca-item ca-item-'+i+'"><div class="ca-item-main"><img src="'+picture.url+'"></div></div>'
+                );
+            });
+            $('#ca-container').contentcarousel();
+        });
+    });
 </script>
 </body>
 
