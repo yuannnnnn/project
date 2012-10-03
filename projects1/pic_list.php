@@ -1,3 +1,4 @@
+<?php header('Access-Control-Allow-Origin: *'); ?>
       <?php 
         $current_dir = "$DOCUMENT_ROOT"."Quotes/";    //Put in second part, the directory - without a leading slash but with a trailing slash! 
         $dir = opendir($current_dir);        // Open the directory
