@@ -10,6 +10,7 @@
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Coustard:900' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css' />
+<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 </head>
 
 <body>
@@ -51,6 +52,19 @@
             <iframe width="560" height="315" src="http://www.youtube.com/embed/NugRZGDbPFU" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+    <div class="row scrollable" id="biography">
+        <div class="items">
+            <div class="span12" style="background:yellow">
+            eqweqw
+            </div>
+             <div class="span12" style="background:blue">
+            qwewqeqw
+            </div>
+             <div class="span12"style="background:red">
+            wqrwq
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="span12">
             <div id="ca-container" class="ca-container">
@@ -59,10 +73,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div id="content">
-
     </div>
 
     <div class="row footer pull-left" style="margin-bottom:15px;margin-left:15px;">
@@ -75,6 +85,10 @@
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
 <script type="text/javascript">
+$(function() {
+// initialize scrollable
+$(".scrollable").scrollable();
+});
     $(document).ready(function(){
         var url = "http://labtpe.com/pic_list.php";
         $.getJSON(url, function(json){
